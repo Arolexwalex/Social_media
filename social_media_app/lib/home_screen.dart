@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'post_widget.dart';
+import 'login_page.dart';
 
 
 class HomePage extends StatelessWidget{
@@ -14,7 +15,20 @@ class HomePage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
-      ),
+        actions: [
+        ElevatedButton(
+          onPressed: () => 
+        Navigator.pushReplacement( context,
+          MaterialPageRoute(builder: (context) => LoginPage()
+          ),
+          
+        ),
+        child: Text('Logout'), 
+        ),
+      ],
+    ),
+
+
       body: Center(
         
         child: PostWidget(

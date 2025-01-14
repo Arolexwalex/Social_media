@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:social_media_app/register_page.dart';
 import 'home_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,10 +17,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        backgroundColor: Colors.blue  ,
+        title: Text('Login',
+        style: TextStyle(fontSize: 24),),
+        
+        centerTitle: true,
+        titleTextStyle: TextStyle(color: Colors.white),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0).copyWith(top: 70.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -93,6 +99,18 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text('Login'),
               ),
+
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: (){
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                    );
+
+              }, child: const Text('Dont have an account? Register'),
+              ),
+          
             ],
           ),
         ),
